@@ -94,5 +94,12 @@ namespace MVCDB1.Controllers
             }
             return View(empDepts);
         }
+
+
+        public IActionResult Display(int id)
+        {
+            var data = db.Emps.Find(id);
+            return View(data);
+        }
     }
 }

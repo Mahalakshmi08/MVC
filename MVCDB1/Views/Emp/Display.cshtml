@@ -1,0 +1,24 @@
+﻿@model Emp
+<h2>
+	Details of @Model.Name
+</h2>
+
+<p>
+	@Html.DisplayNameFor(e => e.Id):@Html.DisplayFor(e => e.Id)<br />
+</p>
+
+<p>
+	@Html.DisplayNameFor(e => e.Name):@Html.DisplayFor(e => e.Name)<br />
+</p>
+
+<p>
+	@Html.DisplayNameFor(e => e.Deptid):@Html.DisplayFor(e => e.Deptid)<br />
+</p>
+
+<p>
+	@Html.DisplayNameFor(e => e.Dob):@Html.DisplayFor(e => e.Dob)<br />
+</p>
+
+
+<hr />
+@Html.ActionLink("Back to List","List")
