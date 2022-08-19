@@ -22,7 +22,7 @@ namespace MVCDB1.Models
         public int? Deptid { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString ="{0:yyyy-MM-dd}")] //this is the format understood by majority of the browsers
-
+        [DOBCheck(ErrorMessage ="You must be atleast 25 years to work in Lnt")]
         public DateTime? Dob { get; set; }
 
         [DataType(DataType.EmailAddress)]
