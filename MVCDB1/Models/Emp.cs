@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 #nullable disable
@@ -26,6 +27,7 @@ namespace MVCDB1.Models
         public DateTime? Dob { get; set; }
 
         [DataType(DataType.EmailAddress)]
+        [Remote("EmailCheck","Emp",ErrorMessage="Duplicate Email")]
         public string Email { get; set; }
 
         public virtual Dept Dept { get; set; }

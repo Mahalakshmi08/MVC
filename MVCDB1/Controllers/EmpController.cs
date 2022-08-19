@@ -64,5 +64,13 @@ namespace MVCDB1.Controllers
             ViewBag.Deptid = new SelectList(db.Depts, "Id", "Name");
             return View(emp);
         }
+
+        public JsonResult EmailCheck(string Email)
+        {
+            bool yesno=db.Emps.Any(e => e.Email == Email);  
+            return Json(!yesno); 
+        }
+
+
     }
 }
