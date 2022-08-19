@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MVCDB1.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MVCDB1.ViewModel;
+
 
 namespace MVCDB1.Controllers
 {
@@ -72,5 +74,25 @@ namespace MVCDB1.Controllers
         }
 
 
+        public IActionResult ShowBonus()
+        {
+            List<Emp> emps = db.Emps.Include("Dept").ToList();
+            List<EmpDept> empDepts = new List<EmpDept>();
+            EmpDept ed = new EmpDept();
+
+            foreach(var data in emps)
+            {
+                ed.Id = data.Id;
+                ed.Name = data.Name;
+                ed.DeptName = data.Dept.Name;
+                ed.Location = data.Dept.Location;
+                ed.Salary = data.Salary;
+                if (data.Salary > 70000) ed.Bonus = 7000;
+                else if (data.Salary > 40000) ed.Bonus = 4000;
+                else ed.Bonus = 2000;
+                empDepts.Add(ed);
+            }
+            return View(empDepts);
+        }
     }
 }

@@ -23,5 +23,7 @@ namespace MVCDB1.Models
         public string Location { get; set; }
 
         public virtual ICollection<Emp> Emps { get; set; }
+
+
     }
 }
