@@ -1,0 +1,31 @@
+﻿body {
+    margin:40px;
+    background-color:blueviolet;
+    height:800px;
+    border:5px solid red;
+}
+
+h1{
+    background-color:antiquewhite;
+    color: darkblue;
+    text-align:center;
+}
+table{
+    width:100%;
+}
+
+tr:hover{
+    color:gold;
+    background-color:coral;
+}
+
+th{
+    font-weight:bolder;
+    font-align:left;
+}
+
+
+h2{
+    background-color:fuchsia;
+    font-family:'Comic Sans MS';
+}
