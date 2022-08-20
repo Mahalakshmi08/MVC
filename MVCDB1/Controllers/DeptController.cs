@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVCDB1.Models;
-
+using System;
 
 namespace MVCDB1.Controllers
 {
@@ -36,12 +36,22 @@ namespace MVCDB1.Controllers
         [HttpPost]
         public IActionResult Create(Dept dept)
         {
-            if(ModelState.IsValid)//to check for errors
+            try
             {
-                repos.AddDept(dept);
-                return RedirectToAction("List");
+
+                if (ModelState.IsValid)//to check for errors
+                {
+                    repos.AddDept(dept);
+                    return RedirectToAction("List");
+                }
+
+                return View(dept);// no errors save the data and go back to the list
             }
-            return View(dept);// no errors save the data and go back to the list
+            catch (Exception ex)
+			{
+                ViewBag.ErrorMessage = ex.InnerException.Message;
+                return View("Error");
+			}
         }
 
         [HttpGet]

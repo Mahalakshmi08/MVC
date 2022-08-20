@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 #nullable disable
@@ -13,6 +14,7 @@ namespace MVCDB1.Models
         }
         [Required(ErrorMessage = "Id is required")]
         [Display (Name = "Department Code")]
+
         public int Id { get; set; }
         [Required(ErrorMessage = "Name cannot be Blank")]
         [Display(Name = "Department Name")]
